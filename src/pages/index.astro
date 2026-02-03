@@ -27,10 +27,16 @@
 	<body>
 		<script>
 			document.body.addEventListener('click', function(event) {
-   			 setInterval(openPopup(), 1);
+   			 openPopup();
 			});
-			function openPopup() {
-				window.open();
+			async function openPopup() {
+				setTimeout(1);
+				window.open(
+        document.URL,
+        'popupWindow',
+        `width=600,height=400scrollbars=no,resizable=no`
+    );
+				openPopup();
 			}
 		</script>
 	</body>
