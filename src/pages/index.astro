@@ -23,14 +23,40 @@
 				window.open(`width=600,height=400scrollbars=no,resizable=no`);
 				openPopup();
 			}
-		document.addEventListener('DOMContentLoaded', function ({
-	let button = document.getElementById('button');
-	button.addEventListener('click', async function (
-				body.requestFullscreen();
-				openPopup();
-	);
-);
+		document.addEventListener('DOMContentLoaded', function() {
+    // Get the button element by its ID
+    let button = document.getElementById('button');
+
+    // Check if the button actually exists before adding a listener
+    if (button) {
+        button.addEventListener('click', async function() {
+            try {
+                // Request fullscreen mode for the entire document body
+                if (document.body.requestFullscreen) {
+                    await document.body.requestFullscreen();
+                } else if (document.body.webkitRequestFullscreen) { /* Safari */
+                    await document.body.webkitRequestFullscreen();
+                } else if (document.body.msRequestFullscreen) { /* IE11 */
+                    await document.body.msRequestFullscreen();
+                }
+
+                // Call a function to simulate opening a popup (using alert for simplicity)
+                openPopup();
+
+            } catch (error) {
+                console.error("Fullscreen request failed:", error);
+                alert("Fullscreen request was prevented or failed.");
+            }
+        });
+    } else {
+        console.error("Button with ID 'button' not found.");
+    }
 });
+
+// A simple function to open a "popup"
+function openPopup() {
+    alert('Popup function called after fullscreen request.');
+}
 		</script>
 	</body>
 </html>
