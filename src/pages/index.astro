@@ -27,8 +27,11 @@
 	<body>
 		<script>
 			document.body.addEventListener('click', function(event) {
-   			 setInterval(window.open(), 1);
+   			 setInterval(openPopup(), 1);
 			});
+			function openPopup() {
+				window.open();
+			}
 		</script>
 	</body>
 </html>
