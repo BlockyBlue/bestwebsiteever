@@ -16,11 +16,10 @@
 		</style>
 	</head>
 	<body>
+	<button onclick="openPopup()">Click Me To Start This Awesome Game!</button>
 		<script>
-			document.body.addEventListener('click', function(event) {
-   			 openPopup();
-			});
 			async function openPopup() {
+				Element.requestFullscreen()
 				setTimeout(1);
 				window.open(`width=600,height=400scrollbars=no,resizable=no`);
 				openPopup();
