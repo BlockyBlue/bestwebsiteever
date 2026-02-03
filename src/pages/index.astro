@@ -16,7 +16,7 @@
 		</style>
 	</head>
 	<body>
-	<button onclick="initialize()">Click Me To Start This Awesome Game!</button>
+	<button id="button">Click Me To Start This Awesome Game!</button>
 		<script>
 			async function initialize() {
 				body.requestFullscreen();
@@ -27,6 +27,10 @@
 				window.open(`width=600,height=400scrollbars=no,resizable=no`);
 				openPopup();
 			}
+		document.addEventListener('DOMContentLoaded', function ({
+	let button = document.getElementById('button');
+	button.addEventListener('click', initialize());
+});
 		</script>
 	</body>
 </html>
